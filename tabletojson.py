@@ -1,5 +1,8 @@
 import json
-from bs4 import BeautifulSoup
+try: 
+    from BeautifulSoup import BeautifulSoup
+except ImportError:
+    from bs4 import BeautifulSoup
 
 def html_to_json(content, indent=None):
     soup = BeautifulSoup(content, "lxml")
