@@ -48,3 +48,44 @@ Convert HTML Table (with no rowspan/colspan) to JSON using Python
     }
 ]
 ```
+
+## Input (Without Table Header)
+
+<table>
+    <tr>
+        <td>1</td>
+        <td>Intel</td>
+        <td>Processor</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>AMD</td>
+        <td>GPU</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Gigabyte</td>
+        <td>Mainboard</td>
+    </tr>
+</table>
+
+# Output
+
+```json
+[
+  [
+    "1",
+    "Intel",
+    "Processor"
+  ],
+  [
+    "2",
+    "AMD",
+    "GPU"
+  ],
+  [
+    "3",
+    "Gigabyte",
+    "Mainboard"
+  ]
+]```
