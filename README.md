@@ -88,7 +88,8 @@ Convert HTML Table (with no rowspan/colspan) to JSON using Python
     "Gigabyte",
     "Mainboard"
   ]
-]```
+]
+```
 
 ## TODO
 
