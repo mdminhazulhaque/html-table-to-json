@@ -93,4 +93,5 @@ Convert HTML Table (with no rowspan/colspan) to JSON using Python
 
 ## TODO
 
-- [ ] Multiple table support
+- [ ] Support for nested table
+- [ ] Support for buggy HTML table (ie. `td` instead of `th` in `thead`)
