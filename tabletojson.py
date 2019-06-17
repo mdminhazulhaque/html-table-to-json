@@ -5,7 +5,7 @@ except ImportError:
     from bs4 import BeautifulSoup
 
 def html_to_json(content, indent=None):
-    soup = BeautifulSoup(content, "lxml")
+    soup = BeautifulSoup(content, "html.parser")
     rows = soup.find_all("tr")
     
     headers = {}
