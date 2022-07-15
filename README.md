@@ -167,6 +167,8 @@ Convert HTML Table (with no rowspan/colspan) to JSON using Python
                         <font color="red">OD </font>$5,738.83
                     </td>
        </tr>
+       <tr class="">
+       </tr>
 </tbody>
 </table>
 
