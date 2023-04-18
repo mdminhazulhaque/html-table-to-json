@@ -11,7 +11,7 @@ def html_to_json(content, indent=None):
     headers = {}
     thead = soup.find("thead")
     if thead:
-        thead = thead.find_all("th")
+        thead = soup.find_all("th")
         for i in range(len(thead)):
             headers[i] = thead[i].text.strip().lower()
     data = []
