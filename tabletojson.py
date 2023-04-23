@@ -28,7 +28,7 @@ def html_to_json(content, indent=None):
                 items.append(index.text.strip())
         if items:
             data.append(items)
-    return json.dumps(data, indent=indent)
+    return json.dumps(data, indent=indent, ensure_ascii=False)
 
 if __name__ == "__main__":
     content = "<table> <thead> <th>ID</th> <th>Vendor</th> <th>Product</th> </thead> <tr> <td>1</td> <td>Intel</td> <td>Processor</td> </tr> <tr> <td>2</td> <td>AMD</td> <td>GPU</td> </tr> <tr> <td>3</td> <td>Gigabyte</td> <td>Mainboard</td> </tr></table>"
