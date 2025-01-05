@@ -27,7 +27,7 @@ Convert HTML Table (with no rowspan/colspan) to JSON using Python
     </tr>
 </table>
 
-# Output
+## Output
 
 ```json
 [
@@ -69,7 +69,7 @@ Convert HTML Table (with no rowspan/colspan) to JSON using Python
     </tr>
 </table>
 
-# Output
+## Output
 
 ```json
 [
@@ -90,7 +90,8 @@ Convert HTML Table (with no rowspan/colspan) to JSON using Python
   ]
 ]
 ```
-# Input
+
+## Input
 
 <table id="statementTable" class="fncGrid" width="100%" cellspacing="0px" cellpadding="0px">
 <thead>
@@ -172,7 +173,7 @@ Convert HTML Table (with no rowspan/colspan) to JSON using Python
 </tbody>
 </table>
 
-# Output
+## Output
 ```json
 [
     {
