@@ -21,7 +21,7 @@ def html_to_json(content, indent=None):
             items = {}
             if len(cells) > 0:
                 for index in headers:
-                    items[headers[index]] = cells[index].text
+                    items[headers[index]] = cells[index].text.strip()
         else:
             items = []
             for index in cells:
