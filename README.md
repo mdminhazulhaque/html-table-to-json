@@ -2,7 +2,58 @@
 
 Convert HTML Table (with no rowspan/colspan) to JSON using Python
 
-## Input
+## Features
+
+✅ **Smart Header Detection** - Automatically detects headers in `<thead>` or first row with `<th>` elements  
+✅ **Flexible Output Format** - Returns list of dictionaries (when headers exist) or list of lists  
+✅ **Robust HTML Parsing** - Handles complex nested HTML content within cells  
+✅ **Error Handling** - Comprehensive input validation and error reporting  
+✅ **Type Safety** - Full type hints for better development experience  
+✅ **Multiple Utility Functions** - Various conversion methods for different use cases  
+
+## Installation
+
+```bash
+pip install beautifulsoup4
+```
+
+## Usage
+
+### Basic Usage
+
+```python
+from tabletojson import html_to_json
+
+# Convert HTML table to JSON
+html_content = "<table>...</table>"
+json_result = html_to_json(html_content, indent=2)
+print(json_result)
+```
+
+### Advanced Usage
+
+```python
+from tabletojson import (
+    html_to_json,
+    html_table_to_dict_list,
+    html_table_to_list_of_lists,
+    validate_html_table
+)
+
+# Validate table first
+if validate_html_table(html_content):
+    # Force dictionary output (with auto-generated headers if needed)
+    dict_result = html_table_to_dict_list(html_content)
+    
+    # Force list of lists output (ignores headers)
+    list_result = html_table_to_list_of_lists(html_content)
+```
+
+## Examples
+
+### Example 1: Table with Headers
+
+**Input:**
 
 <table>
     <thead>
@@ -49,7 +100,9 @@ Convert HTML Table (with no rowspan/colspan) to JSON using Python
 ]
 ```
 
-## Input (Without Table Header)
+### Example 2: Table without Headers
+
+**Input:**
 
 <table>
     <tr>
@@ -69,7 +122,7 @@ Convert HTML Table (with no rowspan/colspan) to JSON using Python
     </tr>
 </table>
 
-## Output
+**Output:**
 
 ```json
 [
@@ -91,7 +144,9 @@ Convert HTML Table (with no rowspan/colspan) to JSON using Python
 ]
 ```
 
-## Input
+### Example 3: Complex Table with tbody and Nested Content
+
+**Input:**
 
 <table id="statementTable" class="fncGrid" width="100%" cellspacing="0px" cellpadding="0px">
 <thead>
@@ -173,7 +228,7 @@ Convert HTML Table (with no rowspan/colspan) to JSON using Python
 </tbody>
 </table>
 
-## Output
+**Output:**
 ```json
 [
     {
@@ -207,7 +262,41 @@ Convert HTML Table (with no rowspan/colspan) to JSON using Python
 ]
 ```
 
+## Improvements Made
+
+### 🐛 **Bug Fixes**
+- Fixed header detection logic that was incorrectly searching for `th` elements
+- Fixed data structure handling for consistent output format
+- Fixed handling of tables with `tbody` elements
+- Fixed text extraction from nested HTML elements (preserves spaces)
+
+### ✨ **New Features**
+- **Type Safety**: Added comprehensive type hints for better IDE support
+- **Input Validation**: Robust error handling with descriptive error messages
+- **Multiple Output Formats**: New utility functions for different use cases
+- **Smart Header Detection**: Detects headers in `<thead>` or first row with `<th>` elements
+- **Empty Row Handling**: Automatically skips empty rows
+- **Flexible Cell Handling**: Handles mismatched column counts gracefully
+
+### 🚀 **Performance & Code Quality**
+- **Modular Design**: Split functionality into focused helper functions
+- **Better Error Handling**: Comprehensive exception handling with context
+- **Documentation**: Added detailed docstrings and usage examples
+- **Test Coverage**: Enhanced test cases covering edge cases and error scenarios
+
+### 📋 **New API Functions**
+- `html_to_json()` - Main conversion function (improved)
+- `html_table_to_dict_list()` - Force dictionary output with auto-generated headers
+- `html_table_to_list_of_lists()` - Force list of lists output
+- `validate_html_table()` - Validate HTML table structure
+
 ## TODO
 
 - [ ] Support for nested table
-- [ ] Support for buggy HTML table (ie. `td` instead of `th` in `thead`)
+- [x] ~~Support for buggy HTML table (ie. `td` instead of `th` in `thead`)~~ ✅ **Fixed**
+- [x] ~~Improve error handling~~ ✅ **Added comprehensive error handling**
+- [x] ~~Add type hints~~ ✅ **Added full type safety**
+- [x] ~~Better text extraction from nested elements~~ ✅ **Improved HTML parsing**
+- [ ] Support for rowspan/colspan attributes
+- [ ] Add support for custom header mappings
+- [ ] Add CSV export functionality
