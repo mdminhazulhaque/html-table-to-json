@@ -130,12 +130,6 @@ def _extract_data_rows(table, headers: Optional[List[str]]) -> List[Union[Dict[s
                 row_dict[header] = value
             data.append(row_dict)
         else:
-            items = []
-            for index in cells:
-                items.append(index.text.strip())
-        if items:
-            data.append(items)
-    return json.dumps(data, indent=indent, ensure_ascii=False)
             data.append(cell_data)
     
     return data
