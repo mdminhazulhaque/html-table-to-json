@@ -1,1 +1,2 @@
-beautifulsoup4
+beautifulsoup4>=4.9.0
+lxml>=4.6.0
